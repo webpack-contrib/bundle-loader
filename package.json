@@ -1,6 +1,6 @@
 {
 	"name": "bundle-loader",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"author": "Tobias Koppers @sokra",
 	"description": "bundle loader module for webpack",
 	"licenses": [

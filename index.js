@@ -13,7 +13,7 @@ module.exports = function() {
 		"	else cb(data);\n",
 		"}\n",
 		"require.ensure([], function(require) {\n",
-		"	var data = require(", null, ");\n",
+		"	data = require(", null, ");\n",
 		"	var callbacks = cbs;\n",
 		"	cbs = null;\n",
 		"	for(var i = 0, l = callbacks.length; i < l; i++) {\n",
@@ -34,7 +34,7 @@ Output format:
 		else cb(data);
 	}
 	require.ensure([], function(require) {
-		var data = require("xxx");
+		data = require("xxx");
 		var callbacks = cbs;
 		cbs = null;
 		for(var i = 0, l = callbacks.length; i < l; i++) {

@@ -3,6 +3,8 @@
 	Author Tobias Koppers @sokra
 */
 module.exports = function() {
+	this.cacheable && this.cacheable();
+	this.clearDependencies && this.clearDependencies();
 	var loaderSign = this.request.indexOf("!");
 	var requireRequest = this.request.substr(loaderSign); // including leading "!"
 	var result = [

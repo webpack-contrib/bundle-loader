@@ -16,6 +16,7 @@ module.exports = function() {
 	result[3] = JSON.stringify(requireRequest);
 	return result.join("");
 }
+module.exports.seperable = true;
 
 /*
 Output format:

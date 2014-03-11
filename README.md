@@ -2,6 +2,8 @@
 
 ## Usage
 
+[Documentation: Using loaders](http://webpack.github.io/docs/using-loaders.html)
+
 ``` javascript
 require("bundle!./file.js")(function(file) {
 	// use file like is was required with

@@ -15,7 +15,9 @@ require("bundle!./file.js")(function(file) {
 The file is requested when you require the bundle loader. If you want it to request it lazy, use:
 
 ``` javascript
-require("bundle?lazy!.file.js")
+var load = require("bundle?lazy!.file.js")
+load()   // triggers the request
+
 ```
 
 ## License

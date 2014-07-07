@@ -34,7 +34,6 @@ module.exports.pitch = function(remainingRequest) {
 	}
 	return result.join("");
 }
-module.exports.separable = true;
 
 /*
 Output format:

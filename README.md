@@ -20,7 +20,7 @@ waitForChunk(function(file) {
 The file is requested when you require the bundle loader. If you want it to request it lazy, use:
 
 ``` javascript
-var load = require("bundle?lazy!.file.js");
+var load = require("bundle?lazy!./file.js");
 
 // The chunk is not requested until you call the load function
 load(function(file) {

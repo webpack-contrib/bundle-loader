@@ -7,13 +7,22 @@ module.exports = function() {};
 module.exports.pitch = function(remainingRequest) {
 	this.cacheable && this.cacheable();
 	var query = loaderUtils.parseQuery(this.query);
+	var nameParam = '';
+	if(query.name) {
+		nameParam = ", '" + query.name + "'";
+	} else if(query.nameRegex) {
+		var paths = remainingRequest.split('!');
+		var path = paths[paths.length - 1];
+		var name = path.match(query.nameRegex)[1];
+		nameParam = ", '" + name + "'";
+	}
 	var result;
 	if(query.lazy) {
 		result = [
 			"module.exports = function(cb) {\n",
 			"	require.ensure([], function(require) {\n",
 			"		cb(require(", JSON.stringify("!!" + remainingRequest), "));\n",
-			"	});\n",
+			"	}" + nameParam + ");\n",
 			"}"];
 	} else {
 		result = [
@@ -30,7 +39,7 @@ module.exports.pitch = function(remainingRequest) {
 			"	for(var i = 0, l = callbacks.length; i < l; i++) {\n",
 			"		callbacks[i](data);\n",
 			"	}\n",
-			"});"];
+			"}" + nameParam + ");"];
 	}
 	return result.join("");
 }

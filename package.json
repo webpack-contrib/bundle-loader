@@ -4,7 +4,7 @@
 	"author": "Tobias Koppers @sokra",
 	"description": "bundle loader module for webpack",
 	"dependencies": {
-		"loader-utils": "0.2.x"
+		"loader-utils": "git://github.com/nickdima/loader-utils#interpolateName"
 	},
 	"licenses": [
 		{

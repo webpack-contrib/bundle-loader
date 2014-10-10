@@ -3,17 +3,23 @@
 	Author Tobias Koppers @sokra
 */
 var loaderUtils = require("loader-utils");
+
 module.exports = function() {};
 module.exports.pitch = function(remainingRequest) {
 	this.cacheable && this.cacheable();
 	var query = loaderUtils.parseQuery(this.query);
+	var options = {
+		context: query.context || this.options.context,
+	};
+	var chunkName = loaderUtils.interpolateName(this, query.name, options);
+	var chunkNameParam = ", " + JSON.stringify(chunkName);
 	var result;
 	if(query.lazy) {
 		result = [
 			"module.exports = function(cb) {\n",
 			"	require.ensure([], function(require) {\n",
 			"		cb(require(", JSON.stringify("!!" + remainingRequest), "));\n",
-			"	});\n",
+			"	}" + chunkNameParam + ");\n",
 			"}"];
 	} else {
 		result = [
@@ -30,7 +36,7 @@ module.exports.pitch = function(remainingRequest) {
 			"	for(var i = 0, l = callbacks.length; i < l; i++) {\n",
 			"		callbacks[i](data);\n",
 			"	}\n",
-			"});"];
+			"}" + chunkNameParam + ");"];
 	}
 	return result.join("");
 }

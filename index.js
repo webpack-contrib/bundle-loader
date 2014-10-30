@@ -8,11 +8,15 @@ module.exports = function() {};
 module.exports.pitch = function(remainingRequest) {
 	this.cacheable && this.cacheable();
 	var query = loaderUtils.parseQuery(this.query);
-	var options = {
-		context: query.context || this.options.context,
-	};
-	var chunkName = loaderUtils.interpolateName(this, query.name, options);
-	var chunkNameParam = ", " + JSON.stringify(chunkName);
+	if(query.name) {
+		var options = {
+			context: query.context || this.options.context,
+		};
+		var chunkName = loaderUtils.interpolateName(this, query.name, options);
+		var chunkNameParam = ", " + JSON.stringify(chunkName);		
+	} else {
+		var chunkNameParam = '';
+	}
 	var result;
 	if(query.lazy) {
 		result = [

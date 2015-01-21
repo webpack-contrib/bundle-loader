@@ -3,6 +3,7 @@
 	Author Tobias Koppers @sokra
 */
 var loaderUtils = require("loader-utils");
+var path = require("path");
 
 module.exports = function() {};
 module.exports.pitch = function(remainingRequest) {
@@ -13,7 +14,11 @@ module.exports.pitch = function(remainingRequest) {
 			context: query.context || this.options.context,
 			regExp: query.regExp
 		};
-		var chunkName = loaderUtils.interpolateName(this, query.name, options);
+        var name = query.name;
+        if (name === true) {
+            name = path.basename(remainingRequest, path.extname(remainingRequest));
+        }
+		var chunkName = loaderUtils.interpolateName(this, name, options);
 		var chunkNameParam = ", " + JSON.stringify(chunkName);		
 	} else {
 		var chunkNameParam = '';

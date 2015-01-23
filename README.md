@@ -28,7 +28,11 @@ load(function(file) {
 });
 ```
 
-You may set name for bundle. See [documentation](https://github.com/webpack/loader-utils#interpolatename)
+You may set name for bundle (`name` query parameter). See [documentation](https://github.com/webpack/loader-utils#interpolatename).
+
+``` javascript
+require("bundle?lazy&name=my-chunk!./file.js");
+```
 
 ## License
 

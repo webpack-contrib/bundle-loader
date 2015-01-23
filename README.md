@@ -28,6 +28,8 @@ load(function(file) {
 });
 ```
 
+You may set name for bundle. See [documentation](https://github.com/webpack/loader-utils#interpolatename)
+
 ## License
 
 MIT (http://www.opensource.org/licenses/mit-license.php)

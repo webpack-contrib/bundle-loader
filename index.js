@@ -23,7 +23,7 @@ module.exports.pitch = function(remainingRequest) {
 		result = [
 			"module.exports = function(cb) {\n",
 			"	require.ensure([], function(require) {\n",
-			"		cb(require(", JSON.stringify("!!" + remainingRequest), "));\n",
+			"		cb(require(", loaderUtils.stringifyRequest(this, "!!" + remainingRequest), "));\n",
 			"	}" + chunkNameParam + ");\n",
 			"}"];
 	} else {
@@ -35,7 +35,7 @@ module.exports.pitch = function(remainingRequest) {
 			"	else cb(data);\n",
 			"}\n",
 			"require.ensure([], function(require) {\n",
-			"	data = require(", JSON.stringify("!!" + remainingRequest), ");\n",
+			"	data = require(", loaderUtils.stringifyRequest(this, "!!" + remainingRequest), ");\n",
 			"	var callbacks = cbs;\n",
 			"	cbs = null;\n",
 			"	for(var i = 0, l = callbacks.length; i < l; i++) {\n",

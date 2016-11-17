@@ -6,7 +6,7 @@
 
 ``` javascript
 // The chunk is requested, when you require the bundle
-var waitForChunk = require("bundle!./file.js");
+var waitForChunk = require("bundle-loader!./file.js");
 
 // To wait until the chunk is available (and get the exports)
 //  you need to async wait for it.
@@ -20,7 +20,7 @@ waitForChunk(function(file) {
 The file is requested when you require the bundle loader. If you want it to request it lazy, use:
 
 ``` javascript
-var load = require("bundle?lazy!./file.js");
+var load = require("bundle-loader?lazy!./file.js");
 
 // The chunk is not requested until you call the load function
 load(function(file) {
@@ -31,7 +31,7 @@ load(function(file) {
 You may set name for bundle (`name` query parameter). See [documentation](https://github.com/webpack/loader-utils#interpolatename).
 
 ``` javascript
-require("bundle?lazy&name=my-chunk!./file.js");
+require("bundle-loader?lazy&name=my-chunk!./file.js");
 ```
 
 ## License

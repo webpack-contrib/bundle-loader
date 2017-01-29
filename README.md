@@ -1,5 +1,9 @@
 # bundle loader for webpack
 
+## Installation
+
+`npm install --save bundle-loader`
+
 ## Usage
 
 [Documentation: Using loaders](http://webpack.github.io/docs/using-loaders.html)

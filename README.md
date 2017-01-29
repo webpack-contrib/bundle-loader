@@ -11,7 +11,7 @@ var waitForChunk = require("bundle-loader!./file.js");
 // To wait until the chunk is available (and get the exports)
 //  you need to async wait for it.
 waitForChunk(function(file) {
-	// use file like is was required with
+	// use file like it was required with
 	// var file = require("./file.js");
 });
 // wraps the require in a require.ensure block

@@ -7,7 +7,7 @@ var loaderUtils = require("loader-utils");
 module.exports = function() {};
 module.exports.pitch = function(remainingRequest) {
 	this.cacheable && this.cacheable();
-	var query = loaderUtils.parseQuery(this.query);
+	var query = loaderUtils.getOptions(this) || {};
 	if(query.name) {
 		var options = {
 			context: query.context || this.options.context,

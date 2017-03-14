@@ -54,14 +54,14 @@ See [documentation](https://github.com/webpack/loader-utils#interpolatename).
 [`output.chunkFilename`](https://webpack.js.org/configuration/output/#output-chunkfilename) rule, which defaults to `[id].[name]`.
 Here `[name]` corresponds to the chunk name set in the `name` query parameter. 
 
-####**Example:**
+#### Example:
 
-``` javascript
+``` js
 require("bundle-loader?lazy&name=my-chunk!./file.js");
 require("bundle-loader?lazy&name=[name]!./file.js");
 ```
 And the WebPack configuration:
-``` javascript
+``` js
 module.exports = {
    entry: { ... },
    output : {

@@ -26,6 +26,16 @@ module.exports.pitch = function(remainingRequest) {
 			"		cb(require(", loaderUtils.stringifyRequest(this, "!!" + remainingRequest), "));\n",
 			"	}" + chunkNameParam + ");\n",
 			"}"];
+	} else if (query.lazyts) {
+		result = [
+			"declare namespace require {\n",
+			"function ensure (a: any,b: (require: any) => void,c?: string): void;\n", 
+			"}\n",
+			"export default function(cb: any) {\n",
+			"	require.ensure([], function(require) {\n",
+			"		cb(require(", loaderUtils.stringifyRequest(this, "!!" + remainingRequest), "));\n",
+			"	}" + chunkNameParam + ");\n",
+			"}"]
 	} else {
 		result = [
 			"var cbs = [], \n",

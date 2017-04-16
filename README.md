@@ -9,7 +9,7 @@
       src="https://cdn.rawgit.com/webpack/media/e7485eb2/logo/icon.svg">
   </a>
   <h1>Bundle Loader</h1>
-  <p>Bundle loader for Webpack.<p>
+  <p>Bundle loader for webpack.<p>
 </div>
 
 <h2 align="center">Install</h2>
@@ -65,7 +65,7 @@ Here `[name]` corresponds to the chunk name set in the `name` query parameter.
 require("bundle-loader?lazy&name=my-chunk!./file.js");
 require("bundle-loader?lazy&name=[name]!./file.js");
 ```
-And the WebPack configuration:
+And the webpack configuration:
 ``` js
 module.exports = {
    entry: { ... },

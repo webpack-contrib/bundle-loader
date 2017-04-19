@@ -18,9 +18,7 @@
 npm i bundle-loader --save
 ```
 
-<h2 align="center">Usage</h2>
-
-[Documentation: Using loaders](http://webpack.github.io/docs/using-loaders.html)
+<h2 align="center"><a href="https://webpack.js.org/concepts/loaders">Usage</a></h2>
 
 ``` javascript
 // The chunk is requested, when you require the bundle

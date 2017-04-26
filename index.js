@@ -19,7 +19,9 @@ module.exports.pitch = function(remainingRequest) {
 		var chunkNameParam = '';
 	}
 	var result;
-	if(query.lazy) {
+	if(process.env.NODE_ENV !== 'production') {
+		result = ["var file = require(", loaderUtils.stringifyRequest(this, "!!" + remainingRequest), "); module.exports = function(cb) { cb(file); }"];
+	} else if(query.lazy) {
 		result = [
 			"module.exports = function(cb) {\n",
 			"	require.ensure([], function(require) {\n",

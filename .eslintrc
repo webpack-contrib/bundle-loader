@@ -1,0 +1,6 @@
+{
+  "extends": "webpack",
+  "rules": {
+    "no-template-curly-in-string": 0
+  }
+}

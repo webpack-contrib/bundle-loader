@@ -5,21 +5,21 @@
 import loaderUtils from 'loader-utils';
 
 export function pitch(remainingRequest) { // eslint-disable-line no-unused-vars
-  const query = loaderUtils.getOptions(this) || {};
+  const options = loaderUtils.getOptions(this) || {};
 
   let chunkNameParam = '';
 
-  if (query.name) {
-    const options = {
-      context: query.context || this.options.context,
-      regExp: query.regExp,
+  if (options.name) {
+    const opts = {
+      context: options.context || this.options.context,
+      regExp: options.regExp,
     };
-    const chunkName = loaderUtils.interpolateName(this, query.name, options);
+    const chunkName = loaderUtils.interpolateName(this, options.name, opts);
     chunkNameParam = `, ${JSON.stringify(chunkName)}`;
   }
 
   let result;
-  if (query.lazy) {
+  if (options.async) {
     result = [
       'module.exports = function(cb) {\n',
       ' require.ensure([], function(require) {\n',

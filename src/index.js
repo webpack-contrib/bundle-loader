@@ -19,7 +19,7 @@ export function pitch(remainingRequest) { // eslint-disable-line no-unused-vars
   }
 
   let result;
-  if (options.async) {
+  if (options.lazy) {
     result = [
       'module.exports = function(cb) {\n',
       ' require.ensure([], function(require) {\n',

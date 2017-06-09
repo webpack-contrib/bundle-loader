@@ -1,5 +1,8 @@
 [![npm][npm]][npm-url]
+[![node][node]][node-url]
 [![deps][deps]][deps-url]
+[![test][test]][test-url]
+[![coverage][cover]][cover-url]
 [![chat][chat]][chat-url]
 
 <div align="center">
@@ -32,7 +35,7 @@ waitForChunk(function(file) {
 });
 // wraps the require in a require.ensure block
 
-// Multiple callbacks can be added. They will be executed in the order of addition. 
+// Multiple callbacks can be added. They will be executed in the order of addition.
 waitForChunk(callbackTwo);
 waitForChunk(callbackThree);
 // If a callback is added after dependencies were loaded, it will be called immediately.
@@ -50,12 +53,12 @@ load(function(file) {
 ```
 ### `name` query parameter
 
-You may set name for a bundle using the `name` query parameter. 
+You may set name for a bundle using the `name` query parameter.
 See [documentation](https://github.com/webpack/loader-utils#interpolatename).
 
-**Note** chunks created by the loader will be named according to the 
+**Note** chunks created by the loader will be named according to the
 [`output.chunkFilename`](https://webpack.js.org/configuration/output/#output-chunkfilename) rule, which defaults to `[id].[name]`.
-Here `[name]` corresponds to the chunk name set in the `name` query parameter. 
+Here `[name]` corresponds to the chunk name set in the `name` query parameter.
 
 #### Example:
 
@@ -75,10 +78,10 @@ module.exports = {
 }
 ```
 
-Normal chunks will show up using the `filename` rule above, and be named according to their chunkname. 
+Normal chunks will show up using the `filename` rule above, and be named according to their chunkname.
 Chunks from `bundle-loader`, however will load using the `chunkFilename` rule, so the example files will produce `my-chunk-1.js` and `file-2.js` respectively.
 
-You can also use `chunkFilename` to add hash values to the filename, since putting `[hash]` in the bundle query parameter does not work correctly. 
+You can also use `chunkFilename` to add hash values to the filename, since putting `[hash]` in the bundle query parameter does not work correctly.
 
 <h2 align="center">Maintainers</h2>
 
@@ -86,39 +89,60 @@ You can also use `chunkFilename` to add hash values to the filename, since putti
   <tbody>
     <tr>
       <td align="center">
-        <img width="150" height="150"
-        src="https://avatars3.githubusercontent.com/u/166921?v=3&s=150">
-        </br>
-        <a href="https://github.com/bebraw">Juho Vepsäläinen</a>
+        <a href="https://github.com/bebraw">
+          <img width="150" height="150" src="https://github.com/bebraw.png?v=3&s=150">
+          </br>
+          Juho Vepsäläinen
+        </a>
       </td>
       <td align="center">
-        <img width="150" height="150"
-        src="https://avatars2.githubusercontent.com/u/8420490?v=3&s=150">
-        </br>
-        <a href="https://github.com/d3viant0ne">Joshua Wiens</a>
+        <a href="https://github.com/d3viant0ne">
+          <img width="150" height="150" src="https://github.com/d3viant0ne.png?v=3&s=150">
+          </br>
+          Joshua Wiens
+        </a>
       </td>
       <td align="center">
-        <img width="150" height="150"
-        src="https://avatars3.githubusercontent.com/u/533616?v=3&s=150">
-        </br>
-        <a href="https://github.com/SpaceK33z">Kees Kluskens</a>
+        <a href="https://github.com/sapegin">
+          <img width="150" height="150" src="https://github.com/sapegin.png?v=3&s=150">
+          </br>
+          Artem Sapegin
+        </a>
       </td>
       <td align="center">
-        <img width="150" height="150"
-        src="https://avatars3.githubusercontent.com/u/3408176?v=3&s=150">
-        </br>
-        <a href="https://github.com/TheLarkInn">Sean Larkin</a>
+        <a href="https://github.com/michael-ciniawsky">
+          <img width="150" height="150" src="https://github.com/michael-ciniawsky.png?v=3&s=150">
+          </br>
+          Michael Ciniawsky
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/evilebottnawi">
+          <img width="150" height="150" src="https://github.com/evilebottnawi.png?v=3&s=150">
+          </br>
+          Alexander Krasnoyarov
+        </a>
       </td>
     </tr>
   <tbody>
 </table>
 
 
+
 [npm]: https://img.shields.io/npm/v/bundle-loader.svg
 [npm-url]: https://npmjs.com/package/bundle-loader
+
+[node]: https://img.shields.io/node/v/bundle-loader.svg
+[node-url]: https://nodejs.org
 
 [deps]: https://david-dm.org/webpack-contrib/bundle-loader.svg
 [deps-url]: https://david-dm.org/webpack-contrib/bundle-loader
 
 [chat]: https://img.shields.io/badge/gitter-webpack%2Fwebpack-brightgreen.svg
 [chat-url]: https://gitter.im/webpack/webpack
+
+[test]: http://img.shields.io/travis/webpack-contrib/bundle-loader.svg
+[test-url]: https://travis-ci.org/webpack-contrib/bundle-loader
+
+[cover]: https://codecov.io/gh/webpack-contrib/bundle-loader/branch/master/graph/badge.svg
+[cover-url]: https://codecov.io/gh/webpack-contrib/bundle-loader

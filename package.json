@@ -46,13 +46,14 @@
     "nsp": "^2.6.3",
     "pre-commit": "^1.2.2",
     "standard-version": "^4.0.0",
-    "webpack-defaults": "^1.2.0"
+    "webpack": "^3.6.0",
+    "webpack-defaults": "^1.6.0"
   },
   "peerDependencies": {
-    "webpack": "^2.0.0 || >= 3.0.0-rc.0 || ^3.0.0"
+    "webpack": "^2.0.0 || ^3.0.0"
   },
   "engines": {
-    "node": ">= 4.3 < 5.0.0 || >= 5.10"
+    "node": ">= 4.8 < 5.0.0 || >= 5.10"
   },
   "homepage": "https://webpack.js.org",
   "repository": {

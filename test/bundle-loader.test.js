@@ -6,16 +6,4 @@ describe(PROJECT_NAME, () => {
     expect(bundleLoader).toBeInstanceOf(Function);
     done();
   });
-  test('should request chunk when bundle is required', (done) => {
-    expect(bundleLoader).toBeInstanceOf(Function);
-    done();
-  });
-  test('should request chunk when load function is called', (done) => {
-    expect(bundleLoader).toBeInstanceOf(Function);
-    done();
-  });
-  test('should set bundle name correctly', (done) => {
-    expect(bundleLoader).toBeInstanceOf(Function);
-    done();
-  });
 });

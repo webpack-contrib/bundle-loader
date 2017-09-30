@@ -3,9 +3,13 @@
   Author Tobias Koppers @sokra
 */
 import loaderUtils from 'loader-utils';
+import validateOptions from 'schema-utils';
+import schema from './options.json';
 
 export function pitch(remainingRequest) { // eslint-disable-line no-unused-vars
   const options = loaderUtils.getOptions(this) || {};
+
+  validateOptions(schema, options, 'Bundle Loader');
 
   let chunkNameParam = '';
 

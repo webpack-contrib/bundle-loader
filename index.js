@@ -23,11 +23,11 @@ module.exports.pitch = function(remainingRequest) {
 	var result;
 	if(query.lazy) {
 		result = [
-			"module.exports = function(successCallback, errorCallback) {",
+			"module.exports = function(cb, err) {",
 			"	require.ensure([], function() {",
-			"		successCallback(require(", loaderUtils.stringifyRequest(this, "!!" + remainingRequest), "));",
+			"		cb(require(", loaderUtils.stringifyRequest(this, "!!" + remainingRequest), "));",
 			"	}, function() {",
-			"		if (errorCallback) errorCallback.apply(this, arguments);",
+			"		if (err) err.apply(this, arguments);",
 			"	}" + chunkNameParam + ");",
 			"};"];
 	} else {
@@ -35,18 +35,18 @@ module.exports.pitch = function(remainingRequest) {
 			"var cbs,",
 			"	data,",
 			"	error = false;",
-			"module.exports = function(successCallback, errorCallback) {",
-			"	errorCallback = errorCallback || function() {};",
+			"module.exports = function(cb, err) {",
+			"	err = err || function() {};",
 			"	if (data) {",
-			"		successCallback(data);",
+			"		cb(data);",
 			"	} else {",
 			"		if (error) {",
 			"			// Try again.",
 			"			requireBundle();",
 			"		}",
 			"		cbs.push({",
-			"			success: successCallback,",
-			"			error: errorCallback",
+			"			success: cb,",
+			"			error: err",
 			"		});",
 			"	}",
 			"};",
@@ -77,11 +77,11 @@ module.exports.pitch = function(remainingRequest) {
 Output format:
 
 	// lazy
-	module.exports = function(successCallback, errorCallback) {
+	module.exports = function(cb, err) {
 		require.ensure([], function() {",
-			successCallback(require("xxx"));
+			cb(require("xxx"));
 		}, function() {
-			if (errorCallback) errorCallback.apply(this, arguments);
+			if (err) err.apply(this, arguments);
 		}, 'name');
 	};
 
@@ -89,18 +89,18 @@ Output format:
 	var cbs,
 	data,
 	error = false;
-	module.exports = function(successCallback, errorCallback) {
-		errorCallback = errorCallback || function() {};
+	module.exports = function(cb, err) {
+		err = err || function() {};
 		if (data) {
-			successCallback(data);
+			cb(data);
 		} else {
 			if (error) {
 				// Try again.
 				requireBundle();
 			}
 			cbs.push({
-				success: successCallback,
-				error: errorCallback
+				success: cb,
+				error: err
 			});
 		}
 	};

@@ -23,54 +23,54 @@ module.exports.pitch = function(remainingRequest) {
 	var result;
 	if(query.lazy) {
 		result = [
-			"module.exports = function(successCallback, errorCallback) {\n",
-			"	require.ensure([], function() {\n",
-			"		successCallback(require(", loaderUtils.stringifyRequest(this, "!!" + remainingRequest), "));\n",
-			"	}, function() {\n",
-			"		if (errorCallback) errorCallback.apply(this, arguments);\n",
-			"	}" + chunkNameParam + ");\n",
+			"module.exports = function(successCallback, errorCallback) {",
+			"	require.ensure([], function() {",
+			"		successCallback(require(", loaderUtils.stringifyRequest(this, "!!" + remainingRequest), "));",
+			"	}, function() {",
+			"		if (errorCallback) errorCallback.apply(this, arguments);",
+			"	}" + chunkNameParam + ");",
 			"};"];
 	} else {
 		result = [
-			"var cbs,\n",
-			"	data,\n",
-			"	error = false;\n",
-			"module.exports = function(successCallback, errorCallback) {\n",
-			"	errorCallback = errorCallback || function() {};\n",
-			"	if (data) {\n",
-			"		successCallback(data);\n",
-			"	} else {\n",
-			"		if (error) {\n",
-			"			// Try again.\n",
-			"			requireBundle();\n",
-			"		}\n",
-			"		cbs.push({\n",
-			"			success: successCallback,\n",
-			"			error: errorCallback\n",
-			"		});\n",
-			"	}\n",
-			"};\n",
-			"function requireBundle() {\n",
-			"	cbs = [];\n",
-			"	require.ensure([], function() {\n",
-			"		data = require(", loaderUtils.stringifyRequest(this, "!!" + remainingRequest), ");\n",
-			"		for(var i = 0, l = cbs.length; i < l; i++) {\n",
-			"			cbs[i].success(data);\n",
-			"		}\n",
-			"		error = false;\n",
-			"		cbs = null;\n",
-			"	}, function() {\n",
-			"		for(var i = 0, l = cbs.length; i < l; i++) {\n",
-			"			cbs[i].error();\n",
-			"		}\n",
-			"		error = true;\n",
-			"		cbs = null;\n",
-			"	}" + chunkNameParam + ");\n",
-			"}\n",
+			"var cbs,",
+			"	data,",
+			"	error = false;",
+			"module.exports = function(successCallback, errorCallback) {",
+			"	errorCallback = errorCallback || function() {};",
+			"	if (data) {",
+			"		successCallback(data);",
+			"	} else {",
+			"		if (error) {",
+			"			// Try again.",
+			"			requireBundle();",
+			"		}",
+			"		cbs.push({",
+			"			success: successCallback,",
+			"			error: errorCallback",
+			"		});",
+			"	}",
+			"};",
+			"function requireBundle() {",
+			"	cbs = [];",
+			"	require.ensure([], function() {",
+			"		data = require(", loaderUtils.stringifyRequest(this, "!!" + remainingRequest), ");",
+			"		for(var i = 0, l = cbs.length; i < l; i++) {",
+			"			cbs[i].success(data);",
+			"		}",
+			"		error = false;",
+			"		cbs = null;",
+			"	}, function() {",
+			"		for(var i = 0, l = cbs.length; i < l; i++) {",
+			"			cbs[i].error();",
+			"		}",
+			"		error = true;",
+			"		cbs = null;",
+			"	}" + chunkNameParam + ");",
+			"}",
 			"requireBundle();"
 		];
 	}
-	return result.join("");
+	return result.join("\n");
 };
 
 /*
@@ -78,7 +78,7 @@ Output format:
 
 	// lazy
 	module.exports = function(successCallback, errorCallback) {
-		require.ensure([], function() {\n",
+		require.ensure([], function() {",
 			successCallback(require("xxx"));
 		}, function() {
 			if (errorCallback) errorCallback.apply(this, arguments);

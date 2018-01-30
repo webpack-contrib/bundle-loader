@@ -10,7 +10,7 @@ module.exports.pitch = function(remainingRequest) {
 	var query = loaderUtils.getOptions(this) || {};
 	if(query.name) {
 		var options = {
-			context: query.context || this.options.context,
+			context: query.context || this.rootContext || this.options && this.options.context,
 			regExp: query.regExp
 		};
 		var chunkName = loaderUtils.interpolateName(this, query.name, options);

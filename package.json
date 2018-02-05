@@ -1,14 +1,26 @@
 {
   "name": "bundle-loader",
-  "version": "0.5.5",
+  "version": "0.5.6",
   "author": "Tobias Koppers @sokra",
   "description": "bundle loader module for webpack",
-  "dependencies": {
-    "loader-utils": "^1.0.2"
+  "license": "MIT",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "engines": {
+    "node": ">= 4"
   },
-  "license": 'MIT',
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/webpack/bundle-loader.git"
-  }
+  "scripts": {
+    "release": "standard-version"
+  },
+  "dependencies": {
+    "loader-utils": "^1.1.0"
+  },
+  "devDependencies": {
+    "standard-version": "^4.0.0"
+  },
+  "repository": "https://github.com/webpack-contrib/bundle-loader.git",
+  "bugs": "https://github.com/webpack-contrib/bundle-loader/issues",
+  "homepage": "https://webpack.js.org/loaders/bundle-loader"
 }

@@ -61,7 +61,7 @@ module.exports.pitch = function(remainingRequest) {
 			"		cbs = null;",
 			"	}, function() {",
 			"		for(var i = 0, l = cbs.length; i < l; i++) {",
-			"			cbs[i].error();",
+			"			cbs[i].error.apply(this, arguments);",
 			"		}",
 			"		error = true;",
 			"		cbs = null;",
@@ -115,7 +115,7 @@ Output format:
 			cbs = null;
 		}, function() {
 			for(var i = 0, l = cbs.length; i < l; i++) {
-				cbs[i].error();
+				cbs[i].error.apply(this, arguments);
 			}
 			error = true;
 			cbs = null;

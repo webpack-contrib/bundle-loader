@@ -198,7 +198,7 @@ You can also use `chunkFilename` to add hash values to the filename, since putti
 [deps]: https://david-dm.org/webpack-contrib/bundle-loader.svg
 [deps-url]: https://david-dm.org/webpack-contrib/bundle-loader
 
-[tests]: http://img.shields.io/travis/webpack-contrib/bundle-loader.svg
+[tests]: https://img.shields.io/travis/webpack-contrib/bundle-loader.svg
 [tests-url]: https://travis-ci.org/webpack-contrib/bundle-loader
 
 [cover]: https://coveralls.io/repos/github/webpack-contrib/bundle-loader/badge.svg

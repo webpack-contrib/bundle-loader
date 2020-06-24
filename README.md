@@ -5,6 +5,28 @@
 [![coverage][cover]][cover-url]
 [![chat][chat]][chat-url]
 
+# ! NO LONGER MAINTAINED !
+
+This module is deprecated and will no longer be maintained.
+
+In most cases, you can replace the functionality by using [`dynamic import`](https://webpack.js.org/api/module-methods/#dynamic-expressions-in-import) instead:
+
+**index.js**
+
+```js
+import(
+  /* webpackChunkName: "my-chunk-name" */
+  './file.bundle.js'
+  ).then(bundle => {
+    // Doing something with `bundle`
+    console.log(bundle)
+});
+```
+
+This code lazy loading imports and exports values from `file.bundle.js` and creates a chunk from this module with the name `my-chank-name`
+
+----------
+
 <div align="center">
   <a href="https://github.com/webpack/webpack">
     <img width="200" height="200"

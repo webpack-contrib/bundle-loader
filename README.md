@@ -23,7 +23,7 @@ import(
 });
 ```
 
-This code lazy loading imports exported values from `file.bundle.js` and creates a chunk from this module with the name `my-chank-name`
+This code lazy loading imports and exports values from `file.bundle.js` and creates a chunk from this module with the name `my-chank-name`
 
 ----------
 

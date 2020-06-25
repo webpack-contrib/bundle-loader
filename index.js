@@ -3,6 +3,7 @@
 	Author Tobias Koppers @sokra
 */
 var loaderUtils = require("loader-utils");
+var LoaderDependency = require("webpack/lib/dependencies/LoaderDependency");
 
 module.exports = function() {};
 module.exports.pitch = function(remainingRequest) {
@@ -42,6 +43,12 @@ module.exports.pitch = function(remainingRequest) {
 			"		callbacks[i](data);\n",
 			"	}\n",
 			"}" + chunkNameParam + ");"];
+	}
+	if (this._module.type !== "javascript/auto") {
+		var nmf = this._compilation.dependencyFactories.get(LoaderDependency);
+		this._module.type = "javascript/auto";
+		this._module.generator = nmf.getGenerator("javascript/auto");
+		this._module.parser = nmf.getParser("javascript/auto");
 	}
 	return result.join("");
 }
